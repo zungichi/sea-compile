@@ -1,0 +1,27 @@
+{
+  "name": "pkg_trial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && pkg dist/index.js --targets node16-win-x64 --output build/output",
+    "build:nexe": "tsc && nexe dist/index.js -o build/output",
+    "build:exe": "esbuild src/index.ts --platform=node --bundle --minify --outfile=dist/index.js && node --experimental-sea-config node-sea.json && npx postject app.exe NODE_SEA_BLOB build/blob.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2 --overwrite",
+    "build:es": "esbuild src/index.ts --platform=node --bundle --minify --outfile=dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "pkg": "^5.8.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "esbuild": "^0.24.0",
+    "nexe": "^4.0.0-rc.6",
+    "typescript": "^5.6.3"
+  }
+}
